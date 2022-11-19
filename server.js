@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const port=5000;
 
+const config=require('./config/key');
 const {User} = require("./models/User");
 const bodyParser = require('body-parser');
 //bodyParser는 client에서 받아오는 정보를 서버에서 분석해서 가져올 수 있게 해주는 용도
@@ -13,8 +14,7 @@ app.listen(port, function(){console.log(`${port} listening on 5000.`)});
 
 const mongoose=require('mongoose');
 mongoose
-    .connect(
-        'mongodb+srv://pompay:Ajouparan12!@cluster0.nhyqwb9.mongodb.net/?retryWrites=true&w=majority',
+    .connect(config.mongoURI,
         {
           //useNewUrlPaser: true,useUnifiedTofology: true,useCreateIndex: true,useFindAndModify: false,
         })
