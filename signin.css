@@ -1,0 +1,51 @@
+html,
+body {
+  font-family:'Tenada';
+  height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #ade3ff;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+}
+.text-center{
+  text-align:center!important;
+}
+.logo_t{
+  font-family:'Tenada';
+  color: #ffffff;
+  font-size:80px;
+  text-shadow: 
+    -1px 0px black, 
+    0px 1px black, 
+    1px 0px black, 
+    0px -1px black;
+}
+.form-floating{
+  position:relative;
+  margin-bottom: 10px;
+}
+
+.checkbox{
+  border: 4px;
+  font-family:'bitbit';
+}
+.form_id{
+  font-family:'bitbit';
+}
+.form_pass{
+  font-family:'bitbit';
+}
+.question-box {
+  margin: 10px 0 20px 0;
+}
