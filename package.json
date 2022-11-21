@@ -4,12 +4,12 @@
   "main": "server.js",
   "license": "MIT",
   "scripts": {
-    "client-build": "cd client && npm ci && npm run build && cd ../",
-    "server-build": "cd server && npm ci --dev && npm run build && cd ../",
-    "heroku-prebuild": "npm run client-build && npm run server-build && mv ./client/build ./server/dist/",
+    "client-build": "cd client && yarn install --immutable --immutable-cache --check-cache && yarn build && cd ../",
+    "server-build": "cd server && yarn install --immutable --immutable-cache --check-cache && yarn build && cd ../",
+    "heroku-prebuild": "yarn client-build && yarn server-build && mv ./client/build ./server/dist/",
     "start": "node server/server.js",
     "backend": "nodemon server/server.js",
-    "dev" : "concurrently \"npm run backend\" \"npm run start --prefix client\"",
+    "dev" : "concurrently \"yarn backend\" \"yarn start --prefix client\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
