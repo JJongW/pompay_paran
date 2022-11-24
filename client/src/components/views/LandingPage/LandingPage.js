@@ -1,22 +1,24 @@
-import React, {useEffect} from 'react'
-import axios from 'axios';
-import {useNavigate} from 'react-router-dom'
-function LandingPage(){
-    const navigate=useNavigate()
-    useEffect(()=>{
-        axios.get('/api/hello')
-        .then(response=>{console.log(response)})
-    },[])
+//import React, {useEffect} from 'react';
+//import axios from 'axios';
 
+import {useNavigate} from 'react-router-dom';
+import {logoutUser} from '../../../_actions/user_actions';
+import {useDispatch} from 'react-redux';
+
+ 
+function LandingPage(){
+    let navigate=useNavigate();
+    const dispatch = useDispatch();
     const onClickHandler=()=>{
-        axios.get(`/api/users/logout`)
-        .then(response=>{
+        dispatch(logoutUser())
+        .then((response)=>{
+            console.log(response);
             if(response.payload.success){
                 navigate('/login')
             }else{
                 alert('Failed to logout!')
             }
-        })
+        }).catch((err)=>console.log(err))
     }
     return (
         <div style={{display: 'flex',
