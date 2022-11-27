@@ -2,6 +2,29 @@ import React,{useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {useNavigate} from 'react-router-dom';
 import { registerUser } from '../../../_actions/user_actions.js';
+import styled from 'styled-components';
+
+const Registerbutton=styled.button`
+    background-color: #79CEE1;
+    color: #ffffff;
+    border-radius: 5px;
+    height: 40px;
+    width: 150px;
+    justifyContent: 'center';
+    border-width: 0;
+    font-weight: bold;
+`;
+const RegisterInput=styled.input`
+    border: 2px solid lightgray;
+    border-radius: 5px;
+    height: 30px;
+    width: 170px;
+`;
+const RegisterLabel=styled.label`
+    color: #79CEE1;
+    font-weight: bold;
+`;
+
 
 function RegisterPage(props){
   const navigate=useNavigate()
@@ -49,23 +72,36 @@ function RegisterPage(props){
   return (
       <div style={{
           display:'flex', justifyContent: 'center', alignItems:'center',
-          width: '100%', height:'100vh'
+          width: '100%', height:'100vh',backgroundColor:'#ececec'
       }}>
-          <form style={{display:'flex', flexDirection:'column'}}
+        <div style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems:'center', 
+                width: '500px', 
+                backgroundColor:'#ffffff', 
+                height:'450px',
+                borderRadius:'20px'}}>
+          <form style={{display:'flex', flexDirection:'column',justifyContent: 'center', alignItems:'center'}}
           onSubmit={onSubmitHandler}>
-              <label>이메일</label>
-              <input type="text" value={Email} onChange={onEmailHandler}/>
-              <label>이름</label>
-              <input type="text" value={Name} onChange={onNameHandler}/>
-              <label>패스워드</label>
-              <input type="password" value={Password} onChange={onPasswordHandler}/>
-              <label>패스워드 확인</label>
-              <input type="password" value={ConfirmPassword} onChange={onConfirmPasswordHandler}/>
-              <br/>
-              <button type="submit">
-                  회원가입
-              </button>
+            <h1>회원가입</h1>
+            <RegisterLabel>이메일</RegisterLabel>
+            <RegisterInput type="text" value={Email} onChange={onEmailHandler}/>
+            <br/>
+            <RegisterLabel>이름</RegisterLabel>
+            <RegisterInput type="text" value={Name} onChange={onNameHandler}/>
+            <br/>
+            <RegisterLabel>패스워드</RegisterLabel>
+            <RegisterInput type="password" value={Password} onChange={onPasswordHandler}/>
+            <br/>
+            <RegisterLabel>패스워드 확인</RegisterLabel>
+            <RegisterInput type="password" value={ConfirmPassword} onChange={onConfirmPasswordHandler}/>
+            <br/>
+            <Registerbutton type="submit">
+                회원가입
+            </Registerbutton>
           </form>
+          </div>
       </div>
   )
 }
